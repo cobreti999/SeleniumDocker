@@ -29,11 +29,13 @@ public class FlightConfirmationPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void printConfirmation(){
+    public String getPrice(){
         this.wait.until(ExpectedConditions.visibilityOf(this.flightConfirmationHeader));
         System.out.println(this.flightConfirmationHeader.getText());
         System.out.println(this.prices.get(1).getText());
+        String price = this.prices.get(1).getText();
         this.signOffLink.click();
+        return price;
     }
 
 }
